@@ -1,1 +1,1 @@
-${installPath} cloud functions deploy --e ${envId} --n quickstartFunctions --r --project ${projectPath}
+"/Applications/wechatwebdevtools.app/Contents/MacOS/cli" cloud functions deploy --e cloud1-3gmjpkloa579b19d --n quickstartFunctions --r --project "/Users/liulina/WeChatProjects/miniprogram-1" --report_first --report

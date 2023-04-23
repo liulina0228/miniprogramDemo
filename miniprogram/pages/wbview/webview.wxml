@@ -1,0 +1,3 @@
+<!--pages/wbview/webview.wxml-->
+<!-- <text>{{path}}</text> -->
+<web-view src="{{path}}"></web-view>

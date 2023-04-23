@@ -1,0 +1,43 @@
+<view class="bgimg" style="background-color: {{pInfo.bgColor}};">
+	<image mode="widthFix" src="{{pInfo.homeBg}}" />
+</view>
+<view class="main">
+	<view class="logo">
+    <image class="imglogo" src="{{pInfo.logo}}" />
+  </view>
+  <view class="dec">
+    <text class="nameDec">{{pInfo.title}}</text>
+  </view>
+  <view class='decDtail'>
+    <text>{{pInfo.dec}}</text>
+  </view>
+	<!--menu begin -->
+	<view class="menu">
+		<view wx:for="{{list}}" bindtap="url" wx:key="{{item.id}}" data-url="{{item.detailUrl}}" class="item">
+			<view class="item-inner">
+				<view class="img">
+					<image src="{{item.icon}}" />
+				</view>
+				<view class="title">{{item.name}}</view>
+			</view>
+		</view>
+	</view>
+	<!--menu END -->
+	<!--footer begin-->
+	<view class="footer">
+	<view>
+		<view class="left">主办：</view>
+		<view class="right">
+			<view wx:for="{{pInfo.sponsor}}" wx:key="{{item.id}}" >{{item}}</view>
+		</view>
+	</view>
+		<view style="clear: both;">
+			<view class="left">承办：</view>
+			<view class="right">
+				<view wx:for="{{pInfo.organizer}}" wx:key="{{item.id}}" >{{item}}</view>
+			</view>
+		</view>
+		
+	</view>
+	<!--footer end-->
+</view>

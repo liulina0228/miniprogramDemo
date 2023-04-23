@@ -1,6 +1,8 @@
 {
 	"pages": [
-		"pages/index/index"
+		"pages/index/index",
+		"pages/default/index/default_index",
+		"pages/wbview/webview"
 	],
 	"window": {
 		"navigationBarTextStyle": "black",
