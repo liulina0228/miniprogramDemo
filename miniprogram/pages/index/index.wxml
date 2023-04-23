@@ -1,6 +1,6 @@
 <!--projects/TRIP1/pages/index/index.wxml-->
 <view class="bgimg" style="background-color: {{pInfo.bgColor}};">
-	<image mode="widthFix" class="imglogo" src="{{pInfo.welcomBg}}" />
+	<image mode="widthFix" src="{{pInfo.welcomBg}}" />
 </view>
 <view class="main">
     <view class="logo">

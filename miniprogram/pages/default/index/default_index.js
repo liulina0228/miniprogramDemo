@@ -1,5 +1,7 @@
 const ProjectBiz = require('../../biz/project_biz.js');
 
+const util = require('../../biz/util') 
+
 
 Page({
 	/**
@@ -67,10 +69,40 @@ Page({
 
 	url: async function (e) {
 		// pageHelper.url(e, this);
-		var webview = e.currentTarget.dataset.url;
-		console.log('34',webview);
-		wx.navigateTo({
-		url: '/pages/wbview/webview?webview='+ webview,
+		var fileLink = e.currentTarget.dataset.url;
+		console.log('34',fileLink);
+		// wx.navigateTo({
+		// url: '/pages/wbview/webview?webview='+ webview,
+		// })
+		
+		if(!fileLink) {
+			return false
+		}
+		util.showLoading()
+
+		// 单次下载允许的最大文件为 200MB
+		wx.cloud.downloadFile({
+			fileID: fileLink, // 地址已打码，自己换个其他的地址("https://www.xxxxx.com/file/测试通知.pdf")
+			success: function (res) {
+					console.log(res, "wx.downloadFile success res")
+					if(res.statusCode != 200) {
+							util.hideLoadingWithErrorTips()
+							return false
+					}
+					var Path = res.tempFilePath //返回的文件临时地址，用于后面打开本地预览所用
+					wx.openDocument({
+							filePath: Path,
+							showMenu: true,
+							success: function (res) {
+									console.log('打开成功');
+									util.hideLoading()
+							}
+					})
+			},
+			fail: function (err) {
+					console.log(err, "wx.downloadFile fail err");
+					util.hideLoadingWithErrorTips()
+			}
 		})
 	},
 
